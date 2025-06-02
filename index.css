@@ -1,0 +1,365 @@
+/* -------------------- 1. Global Reset -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------------------- 2. Typography and Base -------------------- */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #f8f9fa;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* -------------------- 3. Animations (Keyframes) -------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -------------------- 4. Utilities -------------------- */
+.fade-in, .slide-left {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-left {
+  transform: translateX(-50px);
+}
+
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* -------------------- 5. Layout Containers -------------------- */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.Resume-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* -------------------- 6. Header and Navigation -------------------- */
+header {
+  background-color: rgba(36, 59, 85, 0.7);
+  backdrop-filter: blur(20px);
+  top: 0;
+  z-index: 999;
+  padding: 15px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+nav a:hover {
+  color: #00e5ff;
+  transform: scale(1.1);
+}
+
+/* -------------------- 7. Hero Section -------------------- */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  animation: gradientMove 10s ease infinite;
+}
+
+.hero-section h1 {
+  overflow: hidden;
+  font-size: 3.5rem;
+  color: #00e5ff;
+}
+
+.profile-img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.framed-image {
+  border: 4px solid #f8f9fa;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: inline-block;
+  max-width: 50px;
+  height: auto;
+}
+
+/* -------------------- 8. Buttons -------------------- */
+.btn,
+.resume-btn {
+  padding: 12px 28px;
+  background: #2c5364;
+  color: #f8f9fa;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.resume-btn {
+  margin-top: 10px;
+  display: inline-block;
+  background-color: rgba(86, 79, 79, 0.557);
+}
+
+.btn:hover,
+.resume-btn:hover {
+  background-color: #00c1d4;
+  transform: scale(1.05);
+  animation: pulse 0.6s infinite alternate;
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+.Project-btn {
+  width: 150px;
+}
+
+/* -------------------- 9. Skills Section -------------------- */
+.skills {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.skills div {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  border-left: 5px solid #00e5ff;
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.skills h1 {
+  color: #00e5ff;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.skills h3 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.skills ul {
+  list-style-type: disc;
+  margin-left: 1.2rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Delays */
+.skills div:nth-child(1) { animation-delay: 0.2s; }
+.skills div:nth-child(2) { animation-delay: 0.4s; }
+.skills div:nth-child(3) { animation-delay: 0.6s; }
+
+/* -------------------- 10. Experience Section -------------------- */
+#experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  width: 70%;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  border-left: 5px solid #00e5ff;
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.experience-item h1, .experience-item h4 {
+  margin: 0;
+  color: #00f0ff;
+}
+
+.experience-item ul {
+  list-style-type: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* -------------------- 11. Projects Section -------------------- */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  border-left: 5px solid #00e5ff;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+.project-card h3 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+
+/* Project Animation Delays */
+.project-card:nth-child(1) { animation-delay: 0.3s; }
+.project-card:nth-child(2) { animation-delay: 0.5s; }
+
+/* -------------------- 12. Contact Section -------------------- */
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.resume {
+  color: #f8f9fa;
+  text-decoration: none;
+  margin: 0 18px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 2px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* -------------------- 13. Footer -------------------- */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* -------------------- Section Heading Styling -------------------- */
+.section {
+  padding: 70px 0;
+  text-align: center;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: #00e5ff;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #00e5ff;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
