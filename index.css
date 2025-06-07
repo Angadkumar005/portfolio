@@ -162,6 +162,7 @@ nav a:hover {
 /* -------------------- 8. Buttons -------------------- */
 .btn,
 .resume-btn {
+  margin: 10px;
   padding: 12px 28px;
   background: #2c5364;
   color: #f8f9fa;
@@ -245,32 +246,46 @@ nav a:hover {
 
 .experience {
   display: flex;
+  padding: 30px;
   flex-direction: column;
   margin-top: 30px;
   align-items: center;
   justify-content: center;
 }
+.Certificate-btn{
+  margin-top: 20px;
+}
 
 .experience-item {
   background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
+  padding: 30px;
   width: 70%;
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   border-left: 5px solid #00e5ff;
-  animation: slideInLeft 1s ease-out forwards;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+  }
 
 .experience-item h1, .experience-item h4 {
   margin: 0;
   color: #00f0ff;
+  gap: 10px;
+  
 }
 
 .experience-item ul {
   list-style-type: none;
   margin-top: 10px;
   padding-left: 20px;
+  padding: 0;
+
 }
 
 /* -------------------- 11. Projects Section -------------------- */
@@ -338,7 +353,7 @@ footer {
   animation: fadeIn 1.5s ease forwards;
 }
 
-/* -------------------- Section Heading Styling -------------------- */
+/* --------------------14. Section Heading Styling -------------------- */
 .section {
   padding: 70px 0;
   text-align: center;
@@ -362,4 +377,67 @@ footer {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* -------------------- Contact Enhancements -------------------- */
+
+#contact .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  color: #f8f9fa;
+  transition: transform 0.3s ease;
+}
+
+#contact p:hover {
+  transform: scale(1.02);
+}
+
+/* Icons */
+#contact i {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effects */
+#contact p:hover i {
+  transform: scale(1.2);
+}
+
+/* LinkedIn Specific */
+#linkedin-icon {
+  color: #0077b5;
+}
+
+#linkedin-link {
+  color: #0077b5;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#linkedin-link:hover {
+  color: #00e5ff;
+}
+
+/* GitHub Specific */
+#github-icon {
+  color: #f5f5f5;
+}
+
+#github-link {
+  color: #f5f5f5;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#github-link:hover {
+  color: #00e5ff;
 }
